@@ -70,14 +70,13 @@
 \large{Поляков Григорий 799}
 \break
 
-%\begin{center} Москва 2019 \end{center}
-
 \thispagestyle{empty} 
  
  
 \newpage
      
-    \tableofcontents{Содержание}
+    \tableofcontents
+    
 \newpage
  
 \newpage
@@ -102,17 +101,18 @@
 
 Из курса знаем, что PARTITION является {\bf NP} -полной. 
 
-Построим полиномиально-вычислимую функцию сведения. Пусть задан набор чисел $a_1, ..., a_n$, для которых нужно решить задачу  PARTITION. Пусть $S_a = \sum_{i=1}^n a_i$. Тогда $s_i = f(a_i) = \frac{2a_i}{S_a}$. Покажем, что существует подмножество для PARTITION $\Leftrightarrow$ минимальное количество корзин для разбиения $s_1, ..., s_n$ равно $2$.
+Построим полиномиально-вычислимую функцию сведения. Пусть задан набор чисел $a_1, ..., a_n$, для которых нужно решить задачу  PARTITION. Пусть $S_a = \sum_{i=1}^n a_i$. Тогда $s_i = f(a_i) = \frac{2a_i}{S_a}$. Покажем, что существует подмножество для PARTITION $\Leftrightarrow$ минимальное количество корзин для разбиения $i_1, ..., i_n$ c весами $s_1, ..., s_n$ равно $2$.
+
+Обозначим $OPT$ - решение задачи разбиения на корзины.
 
 \begin{itemize}
-  \item $\Rightarrow$
-  \item $\Leftarrow$
+  \item $\Rightarrow$ Заметим, что $OPT$ > 1, т.к. $\sum_{i = 1}^n s_i = 2$. Если существуют подмножества $B$ и $B \textbackslash A$ - решения задачи PARTITION, то существует разбиение набора $s_1, ..., s_n$ на две корзины, сумма в каждой равна единице.
+  
+  \item $\Leftarrow$ Пусть $OPT$ = 2. Тогда сумма весов в каждой корзине равна 1. Следовательно, подмножества исходного набора $a_1, ..., a_n$, соответствующие разбиению на корзины, и будут решением задачи PARTITION.
+  
 \end{itemize}
 
-
-
-
-
+В данном сведении приближение не играет роли, т.к. если решение задачи разбиения на корзины равно 2. То алгоритм, решающий задачу о $o(\frac{3}{2} - \varepsilon)$ - приближении всегда его найдёт, ведь $2 \cdot \frac{3}{2} = 3$, следовательно ответ 3 - уже будет худше, чем $(\frac{3}{2} - \varepsilon)$ - приближение.
 
 \newpage
 \section {Алгоритм, дающий $(1 + \varepsilon)OPT + 1$ корзин}
@@ -191,11 +191,23 @@ $\qedsymbol$
 \bibliography{lit}
 \renewcommand\refname{\centering Список литературы}
 \begin{thebibliography}{9}
-%\bibitem  
 
-%\bibitem
+\bibitem{book} 
 
-%\bibitem
+Fernandez de la Vega, W., & Lueker, G. (2007). Bin packing can be solved within 1 + $\varepsilon$ in linear time. Combinatorica, 1(4), 349-355.
+
+\bibitem{link1}
+
+\begin{verbatim}
+http://u.cs.biu.ac.il/~amir/bin-packing.pdf
+\end{verbatim}
+
+\bibitem{link2}
+
+\begin{verbatim}
+http://ac.informatik.uni-freiburg.de/lak_teaching/ws11_12/
+combopt/notes/bin_packing.pdf
+\end{verbatim}
    
 \end{thebibliography}
 
